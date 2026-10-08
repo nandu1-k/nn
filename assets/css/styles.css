@@ -1,0 +1,833 @@
+
+    @font-face {
+      font-family: Alpha Sans;
+      src: url('../fonts/alpha-sans-regular.otf') format('opentype');
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: Alpha Serif;
+      src: url('../fonts/alpha-serif-italic.otf') format('opentype');
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap
+    }
+
+    :root {
+      --paper: #f6f4ef;
+      --ink: #232d2b;
+      --muted: #696d66;
+      --copper: #a65031;
+      --rule: #dbdcd3;
+      --ease: cubic-bezier(.2, .65, .3, 1)
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      color-scheme: light;
+      min-width: 280px
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Alpha Sans, Arial, sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased
+    }
+
+    button {
+      font: inherit
+    }
+
+    button:focus-visible {
+      outline: 2px solid var(--copper);
+      outline-offset: 6px
+    }
+
+    ::selection {
+      background: #b65c38;
+      color: #fff
+    }
+
+    .page-shell {
+      width: min(100% - 112px, 1240px);
+      min-height: 100svh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column
+    }
+
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 108px;
+      border-bottom: 1px solid var(--rule);
+      gap: 20px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      letter-spacing: 1.7px
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0
+    }
+
+    .brand-dot {
+      color: var(--copper)
+    }
+
+    .header-note {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .1px
+    }
+
+    .small-line {
+      width: 32px;
+      height: 1px;
+      background: #a4a79f
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 42px 0 44px
+    }
+
+    .gateway {
+      width: 100%
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 42px
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--copper);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      line-height: 1.5
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 5.05vw, 70px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -2.5px
+    }
+
+    h1 em {
+      font-family: Alpha Serif, Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -2px;
+      color: #525d50
+    }
+
+    .intro-copy {
+      margin: 18px 0 0;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.5
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px
+    }
+
+    .company-card {
+      position: relative;
+      isolation: isolate;
+      min-height: 408px;
+      padding: 30px 34px 24px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease)
+    }
+
+    .innovations {
+      background: #1c2927;
+      color: #f7f5ed;
+      border-color: #1c2927
+    }
+
+    .engineering {
+      background: #eaece5;
+      color: #25312b;
+      border-color: #d5d9d0
+    }
+
+    .company-card::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none
+    }
+
+    .innovations::before {
+      background: radial-gradient(ellipse at 80% 12%, #6e503831, transparent 64%)
+    }
+
+    .engineering::before {
+      background: linear-gradient(130deg, #faf9f140 0, transparent 60%)
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      position: relative;
+      z-index: 2;
+      min-height: 23px
+    }
+
+    .company-index {
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: 1px;
+      opacity: .7
+    }
+
+    .card-category {
+      font-size: 9px;
+      letter-spacing: 1.7px;
+      line-height: 1.5
+    }
+
+    .innovations .card-category {
+      color: #c4c9c0
+    }
+
+    .engineering .card-category {
+      color: #596358
+    }
+
+    .card-dot {
+      margin-left: auto;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #be7a52
+    }
+
+    .engineering .card-dot {
+      background: #7a876f
+    }
+
+    .art-window {
+      position: absolute;
+      inset: 53px 0 80px;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none
+    }
+
+    .company-art {
+      position: absolute;
+      display: block;
+      width: 360px;
+      height: auto;
+      right: -9px;
+      top: -30px;
+      transition: transform 1s var(--ease), opacity .7s var(--ease)
+    }
+
+    .innovation-art {
+      opacity: .85;
+      right: -15px;
+      top: -19px
+    }
+
+    .engineering-art {
+      width: 325px;
+      right: -12px;
+      top: -10px;
+      opacity: .64
+    }
+
+    .company-info {
+      position: relative;
+      padding-top: 105px;
+      padding-bottom: 28px;
+      flex: 1;
+      display: flex;
+      align-items: flex-end
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: 400
+    }
+
+    .company-prefix {
+      display: block;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -.2px;
+      margin-bottom: 9px
+    }
+
+    .company-name {
+      display: block;
+      font-size: 46px;
+      letter-spacing: -1.2px;
+      line-height: 1.02
+    }
+
+    .engineering .company-name {
+      font-size: 39px;
+      letter-spacing: -1.2px;
+      line-height: 1.07
+    }
+
+    .legal-name {
+      display: block;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.3;
+      letter-spacing: 1px
+    }
+
+    .innovations .legal-name {
+      color: #c4c9c0
+    }
+
+    .engineering .legal-name {
+      color: #596358
+    }
+
+    .card-bottom {
+      border-top: 1px solid #f7f5ed29;
+      padding-top: 18px
+    }
+
+    .engineering .card-bottom {
+      border-color: #25312b26
+    }
+
+    .company-action {
+      border: 0;
+      background: none;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      color: inherit;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: .3px;
+      min-height: 36px
+    }
+
+    .company-action::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 3
+    }
+
+    .arrow-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #f7f5ed42;
+      border-radius: 50%;
+      width: 37px;
+      height: 37px;
+      flex-shrink: 0;
+      transition: background .3s, color .3s, border-color .3s
+    }
+
+    .arrow-circle svg {
+      width: 18px;
+      height: 18px;
+      transition: transform .4s var(--ease)
+    }
+
+    .engineering .arrow-circle {
+      border-color: #25312b42
+    }
+
+    .company-card:focus-within {
+      outline: 2px solid var(--copper);
+      outline-offset: 5px
+    }
+
+    .company-action:focus-visible {
+      outline: 0
+    }
+
+    .site-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 75px;
+      border-top: 1px solid var(--rule);
+      gap: 18px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6
+    }
+
+    .site-footer p {
+      margin: 0
+    }
+
+    .site-footer p:last-child {
+      display: flex;
+      align-items: center;
+      gap: 15px
+    }
+
+    .footer-star {
+      font-size: 19px;
+      color: var(--copper)
+    }
+
+    .company-dialog {
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      color: var(--ink);
+      padding: 0;
+      max-width: 460px;
+      width: calc(100% - 40px);
+      border-radius: 4px;
+      box-shadow: 0 30px 100px #0c171740
+    }
+
+    .company-dialog::backdrop {
+      background: #14221fd6;
+      backdrop-filter: blur(6px)
+    }
+
+    .dialog-content {
+      padding: 40px
+    }
+
+    .company-dialog h2 {
+      font-size: 30px;
+      letter-spacing: -.7px;
+      line-height: 1.15
+    }
+
+    .company-dialog #dialog-description {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 18px 0 30px
+    }
+
+    .dialog-close {
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: 18px;
+      cursor: pointer;
+      font-size: 13px
+    }
+
+    @media(hover:hover) {
+      .company-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 42px #16262312
+      }
+
+      .company-card:hover .company-art {
+        transform: translate(-6px, -4px) rotate(-3deg)
+      }
+
+      .company-card:hover .arrow-circle {
+        background: #f7f5ed;
+        color: #1c2927;
+        border-color: #f7f5ed
+      }
+
+      .engineering:hover .arrow-circle {
+        background: #25312b;
+        color: #f7f5ed;
+        border-color: #25312b
+      }
+
+      .company-card:hover .arrow-circle svg {
+        transform: rotate(45deg)
+      }
+    }
+
+    @media(min-width:1600px) {
+      .company-card {
+        min-height: 438px
+      }
+
+      .intro {
+        margin-bottom: 52px
+      }
+
+      .company-art {
+        width: 390px
+      }
+
+      .engineering-art {
+        width: 350px
+      }
+    }
+
+    @media(max-width:1020px) {
+      .page-shell {
+        width: calc(100% - 64px)
+      }
+
+      .company-card {
+        padding: 26px;
+        min-height: 400px
+      }
+
+      .company-grid {
+        gap: 20px
+      }
+
+      .card-category {
+        font-size: 8px;
+        letter-spacing: 1.2px
+      }
+
+      .company-name {
+        font-size: 41px
+      }
+
+      .engineering .company-name {
+        font-size: 35px
+      }
+
+      .company-art {
+        width: 300px;
+        right: -35px;
+        top: -1px
+      }
+
+      .engineering-art {
+        width: 275px;
+        right: -24px;
+        top: 3px
+      }
+
+      .company-prefix {
+        font-size: 19px
+      }
+
+      .company-info {
+        padding-top: 112px
+      }
+
+      h1 {
+        font-size: 56px
+      }
+    }
+
+    @media(min-width:721px) and (max-height:820px) {
+      .site-header {
+        min-height: 86px
+      }
+
+      main {
+        padding: 24px 0
+      }
+
+      .intro {
+        margin-bottom: 24px
+      }
+
+      .eyebrow {
+        margin-bottom: 12px
+      }
+
+      h1 {
+        font-size: 54px
+      }
+
+      .intro-copy {
+        font-size: 14px;
+        margin-top: 12px
+      }
+
+      .company-card {
+        min-height: 370px
+      }
+
+      .company-info {
+        padding-top: 63px
+      }
+
+      .site-footer {
+        min-height: 62px
+      }
+    }
+
+    @media(max-width:720px) {
+      .page-shell {
+        width: calc(100% - 40px)
+      }
+
+      .site-header {
+        min-height: 88px
+      }
+
+      .brand {
+        font-size: 15px;
+        letter-spacing: 1.2px;
+        gap: 9px
+      }
+
+      .brand-mark {
+        width: 30px;
+        height: 30px
+      }
+
+      .header-note {
+        font-size: 11px
+      }
+
+      .header-note .small-line {
+        display: none
+      }
+
+      main {
+        padding: 38px 0
+      }
+
+      .intro {
+        margin-bottom: 32px
+      }
+
+      h1 {
+        font-size: 48px;
+        letter-spacing: -1.8px
+      }
+
+      h1 em {
+        display: block;
+        letter-spacing: -1.5px
+      }
+
+      .eyebrow {
+        font-size: 9px;
+        margin-bottom: 17px
+      }
+
+      .intro-copy {
+        font-size: 13px;
+        margin-top: 15px
+      }
+
+      .company-grid {
+        grid-template-columns: 1fr;
+        gap: 18px
+      }
+
+      .company-card {
+        min-height: 340px;
+        padding: 25px 28px 21px
+      }
+
+      .company-info {
+        padding-top: 64px;
+        padding-bottom: 22px
+      }
+
+      .company-name {
+        font-size: 43px
+      }
+
+      .engineering .company-name {
+        font-size: 36px
+      }
+
+      .company-prefix {
+        font-size: 18px
+      }
+
+      .card-category {
+        font-size: 9px;
+        letter-spacing: 1.5px
+      }
+
+      .company-art {
+        width: 335px;
+        right: 0;
+        top: -18px
+      }
+
+      .engineering-art {
+        width: 290px;
+        right: 6px;
+        top: -12px
+      }
+
+      .site-footer {
+        min-height: 74px;
+        font-size: 10px
+      }
+
+      .site-footer p:last-child {
+        gap: 9px
+      }
+
+      .footer-star {
+        font-size: 16px
+      }
+    }
+
+    @media(max-width:420px) {
+      .header-note {
+        display: none
+      }
+
+      .site-header {
+        min-height: 77px
+      }
+
+      .company-card {
+        min-height: 326px;
+        padding: 23px 24px 19px
+      }
+
+      .company-name {
+        font-size: 39px
+      }
+
+      .engineering .company-name {
+        font-size: 33px
+      }
+
+      .card-category {
+        font-size: 8px;
+        letter-spacing: 1.1px
+      }
+
+      .card-top {
+        gap: 11px
+      }
+
+      .company-art {
+        right: -33px;
+        width: 300px;
+        top: -15px
+      }
+
+      .engineering-art {
+        right: -14px;
+        width: 268px;
+        top: -8px
+      }
+
+      .company-prefix {
+        font-size: 17px
+      }
+
+      h1 {
+        font-size: 43px
+      }
+
+      .company-info {
+        padding-top: 63px
+      }
+
+      .site-footer p:last-child {
+        max-width: 157px;
+        text-align: right
+      }
+
+      .footer-star {
+        display: none
+      }
+
+      .dialog-content {
+        padding: 28px
+      }
+
+      .company-dialog h2 {
+        font-size: 26px
+      }
+    }
+
+    @media(max-width:340px) {
+      .page-shell {
+        width: calc(100% - 28px)
+      }
+
+      .company-card {
+        padding: 22px 20px
+      }
+
+      .engineering .company-name {
+        font-size: 30px
+      }
+
+      .company-name {
+        font-size: 35px
+      }
+
+      h1 {
+        font-size: 38px
+      }
+
+      .company-prefix {
+        font-size: 16px
+      }
+
+      .card-category {
+        letter-spacing: .6px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .company-card:hover,
+      .company-card:hover .company-art,
+      .company-card:hover .arrow-circle svg {
+        transform: none
+      }
+    }
+  

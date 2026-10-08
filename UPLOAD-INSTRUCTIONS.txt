@@ -1,0 +1,52 @@
+ALPHANUMERIC - UPLOAD INSTRUCTIONS
+
+This is a complete static website. No installation, build command, PHP,
+Node.js server, or database is required. Both company boxes open in new tabs.
+
+FILES
+index.html                     Website homepage
+assets/css/styles.css          Original page design
+assets/js/company-links.js     The two website destinations
+assets/js/main.js              Click behavior and optional dialog handling
+assets/images/                 Original SVG artwork and favicon
+assets/fonts/                  Local fonts and their license
+
+UPLOAD
+1. Extract Alphanumeric-Upload-Ready.zip.
+2. Open the document root assigned to your landing-page domain in your
+   hosting file manager or SFTP client. For a primary cPanel domain this
+   is usually public_html. Other domains may use a different directory.
+3. Upload index.html and the entire assets folder directly into that root.
+   The result must be: document-root/index.html and document-root/assets/.
+   Avoid an extra wrapper such as document-root/Alphanumeric-Upload/index.html.
+4. If uploading the ZIP in File Manager, extract its contents directly into
+   the selected document root. index.html is already at the ZIP's top level.
+5. Visit your domain. Then check /index.html directly if the homepage fails.
+
+FOR STATIC HOSTING WITH A PUBLISH-DIRECTORY SETTING
+Select the extracted directory containing index.html as the publish/output
+folder. This package needs no build command. All asset paths are relative,
+so it can also be served from a subfolder.
+
+IF YOU STILL SEE 403
+A 403 is returned by the hosting server; JavaScript cannot bypass it.
+- If /index.html opens but / returns 403, ask the host to make index.html
+  an allowed default index for this domain.
+- If both / and /index.html return 403, confirm the actual document root,
+  file ownership, readable files, folder access, and the server error log.
+- Typical website files use 0644 permissions and inner asset directories
+  use 0755. Keep your hosting provider's recommended document-root
+  permissions; cPanel public_html may correctly use 0750.
+- Existing access rules, password protection, IP restrictions, or security
+  filtering may need review by your hosting provider.
+This ZIP does not replace server access rules or include an .htaccess file.
+
+DESTINATIONS
+Innovations: https://alphanumericinnovations.com - new tab
+Engineering: https://alphanumericet.com - new tab
+Change these only in assets/js/company-links.js if needed.
+
+REFERENCE DOCUMENTATION
+https://support.cpanel.net/hc/en-us/articles/1500010949202-403-error-Cannot-serve-directory-No-matching-DirectoryIndex
+https://support.cpanel.net/hc/en-us/articles/360050418594-What-are-the-default-file-permissions-for-public-html
+https://docs.cpanel.net/knowledge-base/cpanel-product/how-domains-serve-content/
